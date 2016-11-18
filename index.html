@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ngTile</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="resources/images/favicon.ico">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.30/angular.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <script src="resources/js/ngTile.js"></script>
+    <script src="resources/js/data.js"></script>
+
+    <link href="resources/css/ngTile.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        var myApp = angular.module("myApp", ["ngTile"]);
+        var currentYear = new Date().getFullYear();
+        myApp.controller("tilesController", function ($scope, ngTileConfig) {
+            $scope.footerText = '© Copyright ' + currentYear + ' Christopher Halfpenny';
+            $scope.tileSettings = {
+                data: jsonData,
+                colSize: "col-lg-6",
+                tileType: "tile-md-square"
+            };
+            $scope.defaultColors = ngTileConfig.defaultColors;
+        });
+    </script>
+
+    <style type="text/css">
+        .wrapPre {
+            display: inline-block;
+        }
+
+        .colorExample {
+            height: 85px;
+            width: 85px;
+            color: white;
+            text-align: center;
+        }
+
+        .colorExampleText {
+            position: relative;
+            top: 40%;
+            transform: translateY(-20%);
+            text-align: center;
+            line-height: 88%;
+            font-weight: bold;
+            font-size: medium;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ngTile</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div ng-app="myApp" ng-controller="tilesController">
+        <div class="container">
+            <div style="padding-top: 40px">
+                <h2 style="text-align:center;">ngTile Dashboard Tiles (AngularJS & Bootstrap)</h2>
+                <h3>Details</h3>
+                <p>
+                    ngTile provides a simple way to display an overview of statistics. By default the tiles colors will randomly generate from a set of predefined colors, which can be overwritten.
+                </p>
+                <p>A tile can be created as an <b>individual</b> or <b>multiple</b> by using the directives provided in the plugin.</p>
+                <p>Multiple tiles use <b>ng-repeat</b> so will require an array of objects that <b>must</b> be named using the naming convention specified below</p>
+                <hr />
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3>Prerequisites</h3>
+                        <p>ngTile <b>requires</b> the following dependecies to function correctly:</p>
+                        <ul>
+                            <li><a href="http://angularjs.org" target="_blank">AngularJS</a> 1.2.x</li>
+                            <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> 3.x</li>
+                            <li>Optional: <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> 4.x</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>Files to Download</h3>
+                        <p>
+                            The easiest way to install is with <b>npm:</b>
+                            <pre class="wrapPre">npm install --save ngTile</pre>
+                        </p>
+                        <p>Download via <b>GitHub:</b></p>
+                        <p><a type="button" class="btn btn-default" href="https://github.com/furkick/ngTile" target="_blank"><i class="fa fa-github" style="font-size:130%"></i> <b>Code on GitHub</b></a></p>
+                        <p>Links via <b>unpkg cdn:</b></p>
+                        <p><a href="https://unpkg.com/ngTile@0.0.2/dist/js/ngTile.min.js" target="_blank">JS File</a> <b>|</b> <a href="https://unpkg.com/ngTile@0.0.2/dist/css/ngTile.min.css" target="_blank">CSS File</a></p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>AngularJS Setup</h3>
+                        <p>To import the plugin to angular simply declare the ngTile module in your Angular app.</p>
+                        <pre class="wrapPre">angular.module("myApp", ["ngTile"])</pre>
+                    </div>
+                </div>
+
+                <hr />
+                <h3>Examples and Usage:</h3>
+                <div>
+                    <div style="padding-bottom: 20px;">
+                        <h3>Individual Tiles</h3>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="col-lg-12 tileCol">
+                                    <single-tile icon="fa fa-map-marker" stat="Nuremberg" title="Track" tile-type="tile-md-rect" />
+                                </div>
+                                <div class="col-lg-12 tileCol">
+                                    <single-tile icon="fa fa-clock-o" stat="9:56.14" title="Fastest Lap" tile-type="tile-md-square" />
+                                </div>
+                                <div class="col-lg-12 tileCol">
+                                    <single-tile icon="fa fa-wrench" stat="3" title="Pit Stops" tile-type="tile-md-circle" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-9">
+                                <p>An individual tile is set up using the tag: <pre class="wrapPre">&lt;single-tile /&gt;</pre></p>
+                                <table class="table table-striped" style="margin-bottom: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>Attribute</th>
+                                            <th>Usage</th>
+                                            <th>Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>icon</b></td>
+                                            <td>You may use whatever icon plugin you wish, the examples shown are using the <a href="http://fontawesome.io/icons/" target="_blank">Font Awesome</a> icon set.</td>
+                                            <td><pre class="wrapPre">icon="fa fa-gbp"</pre></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>stat</b></td>
+                                            <td>The stat attribute will render the value set as plain text.</td>
+                                            <td><pre class="wrapPre">stat="£4560.75"</pre></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>title</b></td>
+                                            <td>The title attribute will render the title as plain text.</td>
+                                            <td><pre class="wrapPre">title="Money Spent"</pre></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>tile-type</b></td>
+                                            <td>The tile type chosen will decide which type of tile is displayed e.g. small rectangle, large square</td>
+                                            <td><pre class="wrapPre">tile-type="tile-sm-rect"</pre></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>link</b></td>
+                                            <td>The link will set a href on the tile.</td>
+                                            <td><pre class="wrapPre">link="https://www.google.co.uk"</pre></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>target</b></td>
+                                            <td>The target attr will set a target for the specified href.</td>
+                                            <td><pre class="wrapPre">target="_blank"</pre></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4>Example HTML</h4>
+                                <pre>&lt;div class="row"&gt;
+    &lt;div class="col-lg-3"&gt;
+        &lt;single-tile icon="fa fa-users" stat="146" title="Users" tile-type="tile-lg-rect" link="ViewStats/2016-10-10" target="_self"/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Repeater Tiles</h3>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p>The repater tiles are set up using the tag: <pre class="wrapPre">&lt;tiles /&gt;</pre></p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Usage</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>tile-params</b></td>
+                                    <td>The attributes for the repeated tiles will be set up using an object.</td>
+                                    <td><pre class="wrapPre">tile-params="settings1"</pre></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                    </div>
+                    <div class="col-lg-5">
+                        <tiles tile-params="tileSettings" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <h4>Object Properties:</h4>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Usage</th>
+                                    <th>Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>data</b></td>
+                                    <td>
+                                        You will <b>need</b> to use the naming convention specfied below.
+                                        <ul>
+                                            <li><b>icon:</b> Use the required icon class.</li>
+                                            <li><b>stat:</b> Provide a value for the statistic.</li>
+                                            <li><b>title:</b> Provide a title for the stat.</li>
+                                            <li><b>link:</b> Provide a link for the tiles. (Optional)</li>
+                                            <li><b>target:</b> Provide a target for the link. (Optional)</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <b>Yes</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>colSize</b></td>
+                                    <td>The repeated tiles need to be contained within a row, so a column needs to be specified.</td>
+                                    <td><b>Yes</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>tileType</b></td>
+                                    <td>Specify the type of tiles you want repeated. Examples on this page.</td>
+                                    <td><b>Yes</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>colors</b></td>
+                                    <td>Use this property to <b>overwrite</b> the provided colour pallet. For example use one color to set the repeater tiles to one color.</td>
+                                    <td><b>No</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-5">
+                        <h4>Example Object:</h4>
+                        <pre class="wrapPre">$scope.tileSettings = {
+        data: [{
+                    icon: 'fa fa-search',
+                    stat: '365',
+                    title: 'Days',
+                    link: "https://www.google.co.uk",
+                    target: "_blank"
+                },
+                {
+                    icon: 'fa fa-twitter',
+                    stat: '15987',
+                    title: 'Twitter Users'
+                }],
+        colSize: "col-lg-6",
+        tileType: "tile-md-square",
+        colors: ["#663399", "#2c3e50", "#95a5a6", "#26C281"]
+    };</pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Example HTML</h4>
+                        <pre class="wrapPre">&lt;div class="row"&gt;
+    &lt;tiles tile-params="tileSettings" /&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <h3>Tile Types</h3>
+            <p>Use the predefined css in the &lt;pre&gt; tags to set the specific tile.</p>
+            <br />
+            <h4>Rectangle</h4>
+            <div class="row">
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-lg-rect</pre>
+                    <single-tile icon="fa fa-paypal" stat="7459321" title="PayPal Payments" tile-type="tile-lg-rect" link="#" target="_self" />
+                </div>
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-lg-rect</pre>
+                    <single-tile icon="fa fa-google-wallet" stat="124568" title="Google Wallet Payments" tile-type="tile-md-rect" link="#" target="_self" />
+                </div>
+                <div class="col-lg-2">
+                    <pre class="wrapPre">tile-sm-rect</pre>
+                    <single-tile icon="fa fa-credit-card" stat="4578963" title="Card Payments" tile-type="tile-sm-rect"></single-tile>
+                </div>
+            </div>
+            <br />
+            <h4>Square</h4>
+            <div class="row">
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-lg-square</pre>
+                    <single-tile icon="fa fa-sun-o" stat="7°C" title="Todays Max Temp" tile-type="tile-lg-square" link="#" target="_self" />
+                </div>
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-md-sqaure</pre>
+                    <single-tile icon="fa fa-thermometer-full" stat="Tues" title="Hottest DOW" tile-type="tile-md-square" link="#" target="_self" />
+                </div>
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-sm-square</pre>
+                    <single-tile icon="fa fa-snowflake-o" stat="0.48%" title="Chance of Snow" tile-type="tile-sm-square" link="#" target="_self" />
+                </div>
+            </div>
+            <br />
+            <h4>Circle</h4>
+            <div class="row">
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-lg-circle</pre>
+                    <single-tile icon="fa fa-film" stat="298" title="Plex #Films" tile-type="tile-lg-circle" link="#" target="_self" />
+                </div>
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-md-circle</pre>
+                    <single-tile icon="fa fa-user-circle-o" stat="42" title="Plex #Users" tile-type="tile-md-circle" link="#" target="_self" />
+                </div>
+                <div class="col-lg-3">
+                    <pre class="wrapPre">tile-sm-circle</pre>
+                    <single-tile icon="fa fa-music" stat="15879" title="Plex #Songs" tile-type="tile-sm-circle" link="#" target="_self" />
+                </div>
+            </div>
+            <hr />
+            <h3>Default Colors</h3>
+            <div class="row">
+                <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 tileCol" ng-repeat="i in defaultColors">
+                    <div class="colorExample" style="background-color: {{i}};">
+                        <div class="colorExampleText">{{i}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted" style="text-align:center;">{{footerText}}</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
