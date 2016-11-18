@@ -26,8 +26,8 @@ The easiest way to install is via **npm**
 ### unpkg cdn
 
 Link to files:
-- [JS](https://unpkg.com/ngTile@1.0.2/dist/js/ngTile.min.js)
-- [CSS](https://unpkg.com/ngTile@1.0.2/dist/css/ngTile.min.css)
+- [JS](https://unpkg.com/ngTile@0.0.2/dist/js/ngTile.min.js)
+- [CSS](https://unpkg.com/ngTile@0.0.2/dist/css/ngTile.min.css)
 
 ### Manually
 
