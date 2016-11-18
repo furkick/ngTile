@@ -11,7 +11,7 @@ gulp.task('minifyJS', function () {
         .pipe(babel({ presets: ['es2015'] }))
         .pipe(uglify())
         .pipe(rename('ngTile.min.js'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('minifyCSS', function () {

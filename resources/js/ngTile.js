@@ -21,7 +21,7 @@
                 data = [""];
             }
 
-            for (i = 0; i < data.length; i++) {
+            function myFunction(data, index) {
                 if (ourColors.length == 0) {
 
                     // If its the users colors use them again
