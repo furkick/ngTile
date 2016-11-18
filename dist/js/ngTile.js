@@ -1,4 +1,4 @@
-﻿angular.module("ngTile", []).constant('ngTileConfig',
+angular.module("ngTile", []).constant('ngTileConfig',
     {
         defaultColors: ["#663399", "#2c3e50", "#95a5a6", "#26C281", "#D33257", "#87766C", "#A0B58D",
                     "#00B5B5", "#897FBA", "#953163", "#3E4651", "#2C82C9", "#FF6766", "#CD6B97", "#E67E22"]
@@ -21,7 +21,7 @@
                 data = [""];
             }
 
-            function myFunction(data, index) {
+            for (index in data) {
                 if (ourColors.length == 0) {
 
                     // If its the users colors use them again

@@ -14,6 +14,11 @@ gulp.task('minifyJS', function () {
         .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('createDistJS', function () {
+    gulp.src(['resources/js/ngTile.js'])
+        .pipe(gulp.dest('dist/js'));
+});
+
 gulp.task('minifyCSS', function () {
     gulp.src(['resources/css/ngTile.css'])
         .pipe(minifyCSS())
