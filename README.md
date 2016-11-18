@@ -1,4 +1,4 @@
-# ngTile.js - dev
+# ngTile
 
 Take a look at the [demo site](https://furkick.github.io/ngTile/) to see examples with detailed markup, 
 script and options.
