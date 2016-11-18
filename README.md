@@ -23,6 +23,12 @@ The easiest way to install is via **npm**
 
 ```npm install --save ngTile```
 
+### unpkg cdn
+
+Link to files:
+- [JS](https://unpkg.com/ngTile@1.0.0/dist/js/ngTile.min.js)
+- [CSS](https://unpkg.com/ngTile@1.0.0/dist/css/ngTile.min.css)
+
 ### Manually
 
 Download the files from `dist/`. 
