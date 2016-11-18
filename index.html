@@ -21,18 +21,13 @@
     <script type="text/javascript">
         var myApp = angular.module("myApp", ["ngTile"]);
         var currentYear = new Date().getFullYear();
-
         myApp.controller("tilesController", function ($scope, ngTileConfig) {
-
             $scope.footerText = '© Copyright ' + currentYear + ' Christopher Halfpenny';
-
             $scope.tileSettings = {
                 data: jsonData,
                 colSize: "col-lg-6",
                 tileType: "tile-md-square"
-                //colors: ["#663399", "#2c3e50", "#95a5a6", "#26C281"]
             };
-
             $scope.defaultColors = ngTileConfig.defaultColors;
         });
     </script>
@@ -85,15 +80,6 @@
         <div class="container">
             <div style="padding-top: 40px">
                 <h2 style="text-align:center;">ngTile Dashboard Tiles (AngularJS & Bootstrap)</h2>
-
-                <h3>Prerequisites</h3>
-                <p>ngTile <b>requires</b> the following dependecies to function correctly:</p>
-                <ul>
-                    <li><a href="http://angularjs.org" target="_blank">AngularJS</a> 1.2.x</li>
-                    <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> 3.x</li>
-                    <li>Optional: <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> 4.x</li>
-                </ul>
-                <hr />
                 <h3>Details</h3>
                 <p>
                     ngTile provides a simple way to display an overview of statistics. By default the tiles colors will randomly generate from a set of predefined colors, which can be overwritten.
@@ -101,9 +87,32 @@
                 <p>A tile can be created as an <b>individual</b> or <b>multiple</b> by using the directives provided in the plugin.</p>
                 <p>Multiple tiles use <b>ng-repeat</b> so will require an array of objects that <b>must</b> be named using the naming convention specified below</p>
                 <hr />
-                <h3>AngularJS Setup</h3>
-                <p>To import the plugin to angular simply declare the ngTile module in your Angular app.</p>
-                <pre class="wrapPre">angular.module("myApp", ["ngTile"])</pre>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3>Prerequisites</h3>
+                        <p>ngTile <b>requires</b> the following dependecies to function correctly:</p>
+                        <ul>
+                            <li><a href="http://angularjs.org" target="_blank">AngularJS</a> 1.2.x</li>
+                            <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> 3.x</li>
+                            <li>Optional: <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> 4.x</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>Files to Download</h3>
+                        <p>
+                            The easiest way to install is with <b>npm:</b>
+                            <pre class="wrapPre">npm install --save ngTile</pre>
+                        </p>
+                        <p>Download via <b>GitHub:</b></p>
+                        <a type="button" class="btn btn-default" href="https://github.com/furkick/ngTile" target="_blank"><i class="fa fa-github" style="font-size:130%"></i> <b>Code on GitHub</b></a>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>AngularJS Setup</h3>
+                        <p>To import the plugin to angular simply declare the ngTile module in your Angular app.</p>
+                        <pre class="wrapPre">angular.module("myApp", ["ngTile"])</pre>
+                    </div>
+                </div>
+
                 <hr />
                 <h3>Examples and Usage:</h3>
                 <div>
@@ -336,7 +345,7 @@
             <hr />
             <h3>Default Colors</h3>
             <div class="row">
-                <div class="col-lg-1 tileCol" ng-repeat="i in defaultColors">
+                <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3 tileCol" ng-repeat="i in defaultColors">
                     <div class="colorExample" style="background-color: {{i}};">
                         <div class="colorExampleText">{{i}}</div>
                     </div>

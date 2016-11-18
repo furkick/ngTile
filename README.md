@@ -17,6 +17,12 @@ The following dependacies are **required** for the package to function:
 
 # Installation
 
+### npm
+
+The easiest way to install is via **npm**
+
+```npm install --save ngTile```
+
 ### Manually
 
 Download the files from `dist/`. 
