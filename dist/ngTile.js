@@ -21,10 +21,7 @@
                 data = [""];
             }
 
-            // Loop the data to fill up our color array
-            $(data).each(function () {
-
-                // If we run out just grab them again
+            for (i = 0; i < data.length; i++) {
                 if (ourColors.length == 0) {
 
                     // If its the users colors use them again
@@ -44,7 +41,7 @@
 
                 // Add the color to our color array
                 tileColors.push(randomColor);
-            });
+            };
 
             return tileColors;
         }
