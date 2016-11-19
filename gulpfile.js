@@ -23,5 +23,10 @@ gulp.task('minifyCSS', function () {
     gulp.src(['resources/css/ngTile.css'])
         .pipe(minifyCSS())
         .pipe(rename('ngTile.min.css'))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist/css'))
+});
+
+gulp.task('createDistCSS', function () {
+    gulp.src(['resources/css/ngTile.css'])
+        .pipe(gulp.dest('dist/css'));
 });

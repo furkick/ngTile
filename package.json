@@ -1,13 +1,13 @@
 {
   "name": "ngTile",
-  "version": "0.0.2",
-  "description": "Aangular.js Bootstrap dashboard tiles",
+  "version": "0.0.3",
+  "description": "Angular.js Bootstrap dashboard tiles",
   "homepage": "https://furkick.github.io/ngTile/",
   "main": "dist/ngTile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["tile", "dashboard", "angular", "bootstrap"],
+  "keywords": ["tile", "dashboard", "angular", "bootstrap", "tiles"],
   "directories": {
     "example": "examples"
   },
