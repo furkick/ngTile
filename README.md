@@ -7,7 +7,7 @@ script and options.
     <img src="https://s14.postimg.org/j8uvd3etd/ng_Tile.png" />
 </p>
 
-# Dependancies
+# Dependencies
 
 The following dependacies are **required** for the package to function:
 
@@ -26,8 +26,8 @@ The easiest way to install is via **npm**
 ### unpkg cdn
 
 Link to files:
-- [JS](https://unpkg.com/ngTile@0.0.3/dist/js/ngTile.min.js)
-- [CSS](https://unpkg.com/ngTile@0.0.3/dist/css/ngTile.min.css)
+- [JS](https://unpkg.com/ngTile@0.0.31/dist/js/ngTile.min.js)
+- [CSS](https://unpkg.com/ngTile@0.0.31/dist/css/ngTile.min.css)
 
 ### Manually
 
