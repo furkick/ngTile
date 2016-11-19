@@ -1,4 +1,4 @@
-﻿angular.module("ngTile", []).constant('ngTileConfig',
+﻿angular.module('ngTile', []).constant('ngTileConfig',
     {
         defaultColors: ["#663399", "#2c3e50", "#95a5a6", "#26C281", "#D33257", "#87766C", "#A0B58D",
                     "#00B5B5", "#897FBA", "#953163", "#3E4651", "#2C82C9", "#FF6766", "#CD6B97", "#E67E22"]
@@ -12,25 +12,25 @@
             var tileColors = [];
 
             // If user has own colors we will use them
-            if (userColors != undefined) {
+            if (userColors !== undefined) {
                 ourColors = angular.copy(userColors);
             }
 
             // If we have no data its a single so fill the data with a single row
-            if (data == undefined) {
+            if (data === undefined) {
                 data = [""];
             }
 
-            for (index in data) {
-                if (ourColors.length == 0) {
+            for (var color in data) {
+                if (ourColors.length === 0) {
 
                     // If its the users colors use them again
-                    if (userColors != undefined) {
+                    if (userColors !== undefined) {
                         ourColors = angular.copy(userColors);
                     } else {
                         ourColors = angular.copy(ngTileConfig.defaultColors);
                     }
-                };
+                }
 
                 // Random number in the array
                 var index = Math.random() * ourColors.length;
@@ -41,11 +41,11 @@
 
                 // Add the color to our color array
                 tileColors.push(randomColor);
-            };
+            }
 
             return tileColors;
         }
-    }
+    };
 }
 ).directive('singleTile', function (ngTileSettings) {
     return {
@@ -53,13 +53,13 @@
         scope: true,
         link: function (scope, element, attrs) {
             scope.setRandomColors = ngTileSettings.setRandomColors(),
-            scope.color = attrs.color
+            scope.color = attrs.color,
             scope.icon = attrs.icon,
             scope.stat = attrs.stat,
             scope.title = attrs.title,
             scope.tileType = attrs.tileType,
             scope.link = attrs.link,
-            scope.target = attrs.target
+            scope.target = attrs.target;
         },
         template: `
             <a class ="{{link == undefined && 'noTileLink' || ''}}" href="{{link != undefined && link || 'javascript:;'}}" target="{{target}}" style="text-decoration: none;">
