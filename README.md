@@ -63,6 +63,7 @@ The single tile will require being set up using the following attributes and wil
 - ```icon``` use this to set the icon for the tile. Note that my examples use Font Awesome tiles but you may use another source (although another source hasn't been tested so the results may vary).
 - ```stat``` use this to set the statistic to be displayed in the tile.
 - ```title``` use this to set the title to be displayed in the tile.
+- ```color``` use this to set the hex color code for the tile.
 - ```tile-type``` use this to set the type of tile to be created, tile types are described below.
 - ```link``` use this to specify a href for the tile. This is optional.
 - ```target``` use this to specify the link target. This is optional 
@@ -71,7 +72,7 @@ The single tile will require being set up using the following attributes and wil
 ```html
 <div class="row"> 
     <div class="col-lg-3">
-        <single-tile icon="fa fa-users" stat="146" title="Users" tile-type="tile-lg-rect" link="ViewStats/2016-10-10" target="_self"/>
+        <single-tile icon="fa fa-users" stat="146" title="Users" color="#879998" tile-type="tile-lg-rect" link="ViewStats/2016-10-10" target="_self"/>
     </div>
 </div>
 ```
