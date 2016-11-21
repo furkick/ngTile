@@ -105,7 +105,7 @@
                         <p>Download via <b>GitHub:</b></p>
                         <p><a type="button" class="btn btn-default" href="https://github.com/furkick/ngTile" target="_blank"><i class="fa fa-github" style="font-size:130%"></i> <b>Code on GitHub</b></a></p>
                         <p>Links via <b>unpkg cdn:</b></p>
-                        <p><a href="https://unpkg.com/ngTile@0.0.31/dist/js/ngTile.min.js" target="_blank">JS File</a> <b>|</b> <a href="https://unpkg.com/ngTile@0.0.31/dist/css/ngTile.min.css" target="_blank">CSS File</a></p>
+                        <p><a href="https://unpkg.com/ngTile/dist/js/ngTile.min.js" target="_blank">JS File</a> <b>|</b> <a href="https://unpkg.com/ngTile/dist/css/ngTile.min.css" target="_blank">CSS File</a></p>
                     </div>
                     <div class="col-lg-4">
                         <h3>AngularJS Setup</h3>
@@ -125,7 +125,7 @@
                                     <single-tile icon="fa fa-globe" stat="Nuremberg" title="Track" tile-type="tile-md-rect" />
                                 </div>
                                 <div class="col-lg-12 tileCol">
-                                    <single-tile icon="fa fa-clock-o" stat="9:56.14" title="Fastest Lap" tile-type="tile-md-square" />
+                                    <single-tile icon="fa fa-clock-o" color="#879998" stat="9:56.14" title="Fastest Lap" tile-type="tile-md-square" />
                                 </div>
                                 <div class="col-lg-12 tileCol">
                                     <single-tile icon="fa fa-wrench" stat="3" title="Pit Stops" tile-type="tile-md-circle" />
@@ -159,9 +159,14 @@
                                             <td><pre class="wrapPre">title="Money Spent"</pre></td>
                                         </tr>
                                         <tr>
+                                            <td><b>color</b></td>
+                                            <td>The color attribute is used to set the hex color code for the tile. (This is used to stop generating a random color for the tile).</td>
+                                            <td><pre class="wrapPre">color="#879998""</pre></td>
+                                        </tr>
+                                        <tr>
                                             <td><b>tile-type</b></td>
                                             <td>The tile type chosen will decide which type of tile is displayed e.g. small rectangle, large square</td>
-                                            <td><pre class="wrapPre">tile-type="tile-sm-rect"</pre></td>
+                                            <td><pre class="wrapPre">tile-type="tile-sm-rect</pre></td>
                                         </tr>
                                         <tr>
                                             <td><b>link</b></td>
@@ -182,7 +187,7 @@
                                 <h4>Example HTML</h4>
                                 <pre>&lt;div class="row"&gt;
     &lt;div class="col-lg-3"&gt;
-        &lt;single-tile icon="fa fa-users" stat="146" title="Users" tile-type="tile-lg-rect" link="ViewStats/2016-10-10" target="_self"/&gt;
+        &lt;single-tile icon="fa fa-users" stat="146" title="Users" color="#879998" tile-type="tile-lg-rect" link="ViewStats/2016-10-10" target="_self"/&gt;
     &lt;/div&gt;
 &lt;/div&gt;</pre>
                             </div>
