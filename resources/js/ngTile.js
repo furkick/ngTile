@@ -52,14 +52,14 @@
         restrict: 'E',
         scope: true,
         link: function (scope, element, attrs) {
-            scope.setRandomColors = ngTileSettings.setRandomColors(),
-            scope.color = attrs.color,
-            scope.icon = attrs.icon,
-            scope.stat = attrs.stat,
-            scope.title = attrs.title,
-            scope.tileType = attrs.tileType,
-            scope.link = attrs.link,
-            scope.target = attrs.target;
+            scope.setRandomColors = ngTileSettings.setRandomColors();
+            attrs.$observe('stat', function (val) { scope.stat = attrs.stat; });
+            attrs.$observe('title', function (val) { scope.title = attrs.title; });
+            attrs.$observe('color', function (val) { scope.color = attrs.color; });
+            attrs.$observe('icon', function (val) { scope.icon = attrs.icon; });
+            attrs.$observe('tileType', function (val) { scope.tileType = attrs.tileType; });
+            attrs.$observe('link', function (val) { scope.link = attrs.link; });
+            attrs.$observe('target', function (val) { scope.target = attrs.target; });
         },
         template: `
             <a class ="{{link == undefined && 'noTileLink' || ''}}" href="{{link != undefined && link || 'javascript:;'}}" target="{{target}}" style="text-decoration: none;">
@@ -78,7 +78,12 @@
             tileParams: '='
         },
         link: function (scope, element, attrs) {
-            scope.setRandomColors = ngTileSettings.setRandomColors(scope.tileParams.colors, scope.tileParams.data);
+            // Watch for params changes (just in case http.get takes time etc.)
+            scope.$watch('tileParams', function (newval) {
+                if (newval) {
+                    scope.setRandomColors = ngTileSettings.setRandomColors(scope.tileParams.colors, scope.tileParams.data);
+                };
+            });
         },
         template: `
             <a ng-repeat="i in tileParams.data" class ="{{tileParams.data[$index].link == undefined && 'noTileLink' || ''}}" href="{{tileParams.data[$index].link != undefined && tileParams.data[$index].link || 'javascript:void(0)'}}" target="{{tileParams.data[$index].target}}" style="text-decoration: none;">
