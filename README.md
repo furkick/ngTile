@@ -4,7 +4,7 @@ Take a look at the [demo site](https://furkick.github.io/ngTile/) to see example
 script and options.
 
 <p align="center">
-    <img src="https://s14.postimg.org/j8uvd3etd/ng_Tile.png" />
+    <img src="https://s18.postimg.org/ojmm87p6h/Tiles.png" />
 </p>
 
 # Dependencies
