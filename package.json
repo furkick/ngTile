@@ -1,6 +1,6 @@
 {
   "name": "ngTile",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Angular.js Bootstrap dashboard tiles",
   "homepage": "https://furkick.github.io/ngTile/",
   "main": "dist/ngTile.js",

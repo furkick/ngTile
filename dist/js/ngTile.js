@@ -74,6 +74,9 @@ angular.module('ngTile', []).constant('ngTileConfig',
                     usedColors.push(randomCol);
                 }
                 else {
+                    var index = Math.random() * ourColors.length;
+                    var randomCol = ourColors[Math.floor(index)];
+
                     // Remove the used color
                     ourColors.splice(index, 1);
 
