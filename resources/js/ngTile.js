@@ -3,13 +3,16 @@
         defaultColors: ["#663399", "#2c3e50", "#95a5a6", "#26C281", "#D33257", "#87766C", "#A0B58D",
                     "#00B5B5", "#897FBA", "#953163", "#3E4651", "#2C82C9", "#FF6766", "#CD6B97", "#E67E22"]
     }
-).factory('ngTileSettings', function (ngTileConfig) {
+).value(
+     'usedColors', []
+).factory('ngTileSettings', function (ngTileConfig, usedColors) {
     return {
         setRandomColors: function (userColors, data) {
-
             // Setup our defaults
             var ourColors = angular.copy(ngTileConfig.defaultColors);
             var tileColors = [];
+            var singleTile = false;
+            var colorsReset = false;
 
             // If user has own colors we will use them
             if (userColors !== undefined) {
@@ -19,6 +22,7 @@
             // If we have no data its a single so fill the data with a single row
             if (data === undefined) {
                 data = [""];
+                singleTile = true;
             }
 
             for (var color in data) {
@@ -32,17 +36,51 @@
                     }
                 }
 
-                // Random number in the array
-                var index = Math.random() * ourColors.length;
-                var randomColor = ourColors[Math.floor(index)];
+                if (singleTile) {
 
-                // Remove the used color
-                ourColors.splice(index, 1);
+                    // Reset if we need to
+                    if (usedColors.length === ourColors.length) {
+                        // Set the color reset to true (because we just reset!)
+                        colorsReset = true;
 
-                // Add the color to our color array
-                tileColors.push(randomColor);
+                        // Last color used
+                        usedColors = [usedColors[usedColors.length - 1]];
+                    }
+
+                    var randomCol;
+
+                    // Get a random color for the tile
+                    var index = Math.random() * ourColors.length;
+                    var randomCol = ourColors[Math.floor(index)];
+
+                    while (usedColors.indexOf(randomCol) !== -1) {
+                        randomCol = ourColors[Math.floor(Math.random() * ourColors.length)];
+                    };
+
+                    // If we just reset remove the first color so we can use it again
+                    if (colorsReset) {
+
+                        // Set reset to false
+                        colorsReset = false;
+
+                        // Remove first in array
+                        usedColors.splice(0, 1);
+                    }
+
+                    // Add to array so it will set a color for a tile
+                    tileColors.push(randomCol);
+
+                    // Add this color to an array so we dont use it again yet
+                    usedColors.push(randomCol);
+                }
+                else {
+                    // Remove the used color
+                    ourColors.splice(index, 1);
+
+                    // Add the color to our color array
+                    tileColors.push(randomCol);
+                }
             }
-
             return tileColors;
         }
     };
