@@ -9,7 +9,7 @@ script and options.
 
 # Dependencies
 
-The following dependacies are **required** for the package to function:
+The following dependencies are **required** for the package to function:
 
 - [AngularJS](http://angularjs.org) **v1.2.x**
 - [Bootstrap](https://jquery.com/) **v3.x**
