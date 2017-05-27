@@ -102,14 +102,14 @@
             attrs.$observe('link', function (val) { scope.link = attrs.link; });
             attrs.$observe('target', function (val) { scope.target = attrs.target; });
         },
-        template: `
-            <a class ="{{link == undefined && 'noTileLink' || ''}}" href="{{link != undefined && link || 'javascript:;'}}" target="{{target}}" style="text-decoration: none;">
-                <div class ="{{tileType}}" style="background-color: {{color != undefined && color || setRandomColors[0]}}" ng-href="link">
-                    <div class ="iconPos"><i class ="{{icon}}"></i></div>
-                    <p class ="middle"><b>{{stat}}</b></p>
-                    <div class ="title"><b>{{title}}</b></div>
-                </div>
-            </a>`
+        template:
+            '<a class="{{link == undefined && \'noTileLink\' || \'\'}}" href="{{link != undefined && link || \'#\'}}" target="{{target}}" style="text-decoration: none;">' +
+                '<div class="{{tileType}}" ng-style="{\'background-color\': color != undefined && color || setRandomColors[0]}" ng-href="link">' +
+                    '<div class="iconPos"><i class ="{{icon}}"></i></div>' +
+                    '<p class="middle"><b>{{stat}}</b></p>' +
+                    '<div class="title"><b>{{title}}</b></div>' +
+               '</div>' +
+            '</a>'
     };
 }
 ).directive('tiles', function (ngTileSettings) {
@@ -126,15 +126,15 @@
                 };
             });
         },
-        template: `
-            <a ng-repeat="i in tileParams.data" class ="{{tileParams.data[$index].link == undefined && 'noTileLink' || ''}}" href="{{tileParams.data[$index].link != undefined && tileParams.data[$index].link || 'javascript:void(0)'}}" target="{{tileParams.data[$index].target}}" style="text-decoration: none;">
-                <div class ="{{tileParams.colSize}} tileCol">
-                       <div class ="{{tileParams.tileType}}" style="background-color: {{setRandomColors[$index]}}">
-                            <div class="iconPos"><i class="{{i.icon}}"></i></div>
-                            <p class="middle"><b>{{i.stat}}</b></p>
-                            <div class="title"><b>{{i.title}}</b></div>
-                        </div>
-                   </div>
-            </a>`
+        template:
+            '<a ng-repeat="i in tileParams.data" class ="{{tileParams.data[$index].link == undefined && \'noTileLink\' || \'\'}}" href="{{tileParams.data[$index].link != undefined && tileParams.data[$index].link || \'#\'}}" target="{{tileParams.data[$index].target}}" style="text-decoration: none;">' +
+                '<div class ="{{tileParams.colSize}} tileCol">' +
+                       '<div class ="{{tileParams.tileType}}" ng-style="{\'background-color\': setRandomColors[$index]}">' +
+                            '<div class="iconPos"><i class="{{i.icon}}"></i></div>' +
+                            '<p class="middle"><b>{{i.stat}}</b></p>' +
+                            '<div class="title"><b>{{i.title}}</b></div>' +
+                        '</div>' +
+                   '</div>' +
+            '</a>'
     };
 });
