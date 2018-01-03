@@ -1,31 +1,25 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html>
 <head>
     <title>ngTile</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="resources/images/favicon.ico">
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.30/angular.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-
     <script src="resources/js/data.js"></script>
-
     <!--Live ngTile-->
     <script src="resources/js/ngTile.js"></script>
     <link href="resources/css/ngTile.css" rel="stylesheet" />
-
     <!--Test min ngTile-->
     <!--<script src="dist/js/ngTile.min.js"></script>
     <link href="dist/css/ngTile.min.css" rel="stylesheet" />-->
     <!--Test ngTile-->
     <!--<script src="dist/js/ngTile.js"></script>
     <link href="dist/css/ngTile.css" rel="stylesheet" />-->
-
     <script type="text/javascript">
         var myApp = angular.module("myApp", ["ngTile"]);
         var currentYear = new Date().getFullYear();
@@ -39,7 +33,6 @@
             $scope.defaultColors = ngTileConfig.defaultColors;
         });
     </script>
-
     <style type="text/css">
         .wrapPre {
             display: inline-block;
@@ -83,7 +76,6 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-
     <div ng-app="myApp" ng-controller="tilesController">
         <div class="container">
             <div style="padding-top: 40px">
@@ -122,7 +114,6 @@
                         <pre class="wrapPre">angular.module("myApp", ["ngTile"])</pre>
                     </div>
                 </div>
-
                 <hr />
                 <h3>Examples and Usage:</h3>
                 <div>
@@ -140,7 +131,6 @@
                                     <single-tile icon="fa fa-wrench" stat="3" title="Pit Stops" tile-type="tile-md-circle" />
                                 </div>
                             </div>
-
                             <div class="col-lg-9">
                                 <p>An individual tile is set up using the tag: <pre class="wrapPre">&lt;single-tile /&gt;</pre></p>
                                 <table class="table table-striped" style="margin-bottom: 0;">
@@ -203,7 +193,6 @@
                         </div>
                     </div>
                 </div>
-
                 <h3>Repeater Tiles</h3>
                 <div class="row">
                     <div class="col-lg-7">
@@ -314,11 +303,11 @@
             <div class="row">
                 <div class="col-lg-3">
                     <pre class="wrapPre">tile-lg-rect</pre>
-                    <single-tile icon="fa fa-paypal" stat="7459321" title="PayPal Payments" tile-type="tile-lg-rect" link="#" target="_self" />
+                    <single-tile icon="fa fa-paypal" stat="7459321" title="PayPal Payments" tile-type="tile-lg-rect" />
                 </div>
                 <div class="col-lg-3">
                     <pre class="wrapPre">tile-lg-rect</pre>
-                    <single-tile icon="fa fa-google-wallet" stat="124568" title="Google Wallet Payments" tile-type="tile-md-rect" link="#" target="_self" />
+                    <single-tile icon="fa fa-google-wallet" stat="124568" title="Google Wallet Payments" tile-type="tile-md-rect" />
                 </div>
                 <div class="col-lg-2">
                     <pre class="wrapPre">tile-sm-rect</pre>
@@ -330,15 +319,15 @@
             <div class="row">
                 <div class="col-lg-3">
                     <pre class="wrapPre">tile-lg-square</pre>
-                    <single-tile icon="fa fa-sun-o" stat="7°C" title="Todays Max Temp" tile-type="tile-lg-square" link="#" target="_self" />
+                    <single-tile icon="fa fa-sun-o" stat="7°C" title="Todays Max Temp" tile-type="tile-lg-square" />
                 </div>
                 <div class="col-lg-3">
-                    <pre class="wrapPre">tile-md-sqaure</pre>
-                    <single-tile icon="fa fa-thermometer-full" stat="Tues" title="Hottest DOW" tile-type="tile-md-square" link="#" target="_self" />
+                    <pre class="wrapPre">tile-md-square</pre>
+                    <single-tile icon="fa fa-thermometer-full" stat="Tues" title="Hottest DOW" tile-type="tile-md-square" />
                 </div>
                 <div class="col-lg-3">
                     <pre class="wrapPre">tile-sm-square</pre>
-                    <single-tile icon="fa fa-snowflake-o" stat="0.48%" title="Chance of Snow" tile-type="tile-sm-square" link="#" target="_self" />
+                    <single-tile icon="fa fa-snowflake-o" stat="0.48%" title="Chance of Snow" tile-type="tile-sm-square" />
                 </div>
             </div>
             <br />
@@ -346,15 +335,15 @@
             <div class="row">
                 <div class="col-lg-3">
                     <pre class="wrapPre">tile-lg-circle</pre>
-                    <single-tile icon="fa fa-film" stat="298" title="Plex #Films" tile-type="tile-lg-circle" link="#" target="_self" />
+                    <single-tile icon="fa fa-film" stat="298" title="Plex #Films" tile-type="tile-lg-circle" />
                 </div>
                 <div class="col-lg-3">
                     <pre class="wrapPre">tile-md-circle</pre>
-                    <single-tile icon="fa fa-user-circle-o" stat="42" title="Plex #Users" tile-type="tile-md-circle" link="#" target="_self" />
+                    <single-tile icon="fa fa-user-circle-o" stat="42" title="Plex #Users" tile-type="tile-md-circle" />
                 </div>
                 <div class="col-lg-3">
                     <pre class="wrapPre">tile-sm-circle</pre>
-                    <single-tile icon="fa fa-music" stat="15879" title="Plex #Songs" tile-type="tile-sm-circle" link="#" target="_self" />
+                    <single-tile icon="fa fa-music" stat="15879" title="Plex #Songs" tile-type="tile-sm-circle" />
                 </div>
             </div>
             <hr />
