@@ -367,6 +367,6 @@
     padding-bottom: 15px;
 }
 
-.noTileLink {
-    cursor: default;
+.tileLink {
+    cursor: pointer;
 }
