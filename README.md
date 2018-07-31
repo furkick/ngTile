@@ -140,7 +140,7 @@ There are currently **9** different types to choose from of **3** different shap
 The default colors are shown below:
 
 <p align="center">
-    <img src="https://s16.postimg.org/934litz79/Colors.png" />
+    <img src="https://image.frl/i/40mf3y0ikf4jr79m.jpg" />
 </p>
 
 # Issues
